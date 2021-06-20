@@ -1289,6 +1289,7 @@ def thread_handle_connections(port: int,sock: socket, callback_id: int) -> None:
             cached_rportfwd[callback_id][port]["connections"].append(conn_sock)
             cached_rportfwd[callback_id][port]["connections"][id]["thread_read"].start()
             cached_rportfwd[callback_id][port]["connections"][id]["thread_write"].start()
+            cached_rportfwd[callback_id][port]["connections"][id]["toAgentThread"].start()
             id = id + 1
     except:
         pass
